@@ -1,0 +1,118 @@
+<?php
+session_start();
+if(empty($_SESSION['user'])){
+    header('Location:login.html');
+}?>
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>HLS直播系统</title>
+    <link rel="stylesheet" href="./layui/css/layui.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="icon" href="./image/ynu.jpg">
+</head>
+<body>
+
+<div class="layui-layout layui-layout-admin" id="layui-layout">
+    <!-- header -->
+    <div class="layui-header my-header">
+        <a href="index.html">
+            <!--<img class="my-header-logo" src="" alt="logo">-->
+            <div class="my-header-logo">HLS直播系统</div>
+        </a>
+ 
+        <!-- 顶部左侧添加选项卡监听 -->
+        <ul class="layui-nav" lay-filter="side-top-left">
+            <!--<li class="layui-nav-item"><a href="javascript:;" href-url="demo/btn.html"><i class="layui-icon"></i>按钮</a></li>
+            <li class="layui-nav-item">
+                <a href="javascript:;"><i class="layui-icon"></i>基础</a>
+                <dl class="layui-nav-child">
+                    <dd><a href="javascript:;" href-url="demo/btn.html"><i class="layui-icon"></i>按钮</a></dd>
+                    <dd><a href="javascript:;" href-url="demo/form.html"><i class="layui-icon"></i>表单</a></dd>
+                </dl>
+            </li>-->
+        </ul>
+ 
+        <!-- 顶部右侧添加选项卡监听 -->
+        <ul class="layui-nav my-header-user-nav" lay-filter="side-top-right">
+            <li class="layui-nav-item">
+                <a class="name" href="javascript:;"><i class="layui-icon"></i>主题</a>
+                <dl class="layui-nav-child">
+                    <dd data-skin="0"><a href="javascript:change_style_default();">默认</a></dd>
+                    <dd data-skin="1"><a href="javascript:change_style_white();">纯白</a></dd>
+                    <dd data-skin="2"><a href="javascript:change_style_blue();">蓝白</a></dd>
+                </dl>
+            </li>
+            <li class="layui-nav-item">
+                <a class="name" href="javascript:;"><img src="./image/ynu.jpg" alt="logo"> <?php echo $_SESSION['user'] ?> </a>
+                <dl class="layui-nav-child">
+                    <dd><a href="logout.php"><i class="layui-icon">ဆ</i>登出</a></dd>
+                </dl>
+            </li>
+        </ul>
+ 
+    </div>
+    <!-- side -->
+    <div class="layui-side my-side">
+        <div class="layui-side-scroll">
+            <!-- 左侧主菜单添加选项卡监听 -->
+            <ul class="layui-nav layui-nav-tree" lay-filter="side-main">
+                <li class="layui-nav-item layui-nav-itemed"> 
+                    <a href="javascript:;"><i class="layui-icon"></i>直播录播</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="javascript:switch_page('直播','live.php');" ><i class="layui-icon"></i>直播页</a></dd>
+                        <dd><a href="javascript:switch_page('录播','record.html');"><i class="layui-icon"></i>录播页</a></dd>
+                    </dl>
+                </li>
+                <!--去除 layui-nav-itemed 即可关闭展开-->
+                <!-- <li class="layui-nav-item">
+                    <a href="javascript:;"><i class="layui-icon"></i>其他页面</a>
+                    <dl class="layui-nav-child">
+                        
+                    </dl>
+                </li> -->
+            </ul>
+ 
+        </div>
+    </div>
+    <!-- body -->
+    <div class="layui-body my-body">
+        <div class="layui-tab layui-tab-card my-tab" lay-filter="card" lay-allowClose="true">
+            <ul class="layui-tab-title">
+                <li class="layui-this" lay-id="1"><span id="page_name"><i class="layui-icon"></i>欢迎页</span></li>
+            </ul>
+            <div class="layui-tab-content">
+                <div class="layui-tab-item layui-show">
+                    <iframe id="iframe" src="welcome.html" frameborder="0"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- footer -->
+    <div class="layui-footer my-footer">
+        <p>HLS直播系统 云南大学软件学院 v2.0</p>
+    </div>
+</div>
+ 
+<!-- 右键菜单 -->
+<div class="my-dblclick-box none">
+    <table class="layui-tab dblclick-tab">
+        <tr class="card-refresh">
+            <td><i class="layui-icon">ဂ</i>刷新当前标签</td>
+        </tr>
+        <tr class="card-close">
+            <td><i class="layui-icon">ဆ</i>关闭当前标签</td>
+        </tr>
+        <tr class="card-close-all">
+            <td><i class="layui-icon">ဆ</i>关闭所有标签</td>
+        </tr>
+    </table>
+</div>
+<script type="text/javascript" src="./layui/layui.js"></script>
+<script type="text/javascript" src="./js/index_functions.js"></script>
+</body>
+</html>

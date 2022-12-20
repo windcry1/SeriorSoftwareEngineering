@@ -1,0 +1,52 @@
+div {
+    display: inline-block;
+}
+#inlinecontainer {
+    height: 60%;
+    width: 100%;
+    /* visibility: hidden; */
+}
+#_button-container {
+    position: absolute;
+    top: 20;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    right: 0;
+    text-align: center;
+}
+.container {
+    text-align: center;
+    font-size: 0;
+    height: 100%;
+    width: 49%;
+}
+#video1{
+    height: 90%;
+    width: 100%;
+}
+
+#video2 {
+    height: 90%;
+    width: 100%;
+}
+
+#video3 {
+    height: 90%;
+    width: 100%;
+}
+
+#video4 {
+    height: 90%;
+    width: 100%;
+}
+
+.text {
+    font-size: medium;
+}
+.vjs-big-play-button {
+    left: 50% !important;
+    top: 50% !important;
+    margin-left: -2em;
+    margin-top: -1.3em;
+}

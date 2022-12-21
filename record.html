@@ -20,7 +20,7 @@
             var path = './record/';
             table.render({
                 elem:'#record'
-                ,url:'./record.php'
+                ,url:'record.php'
                 ,cellMinWidth: 150 //全局定义常规单元格的最小宽度
                 ,cols: [[
                     {field:'filename', align:'center', minwidth:150, title: '文件名'},
@@ -37,6 +37,25 @@
                     parent.window.switch_page('录播播放器','playvideo.html?url=' + url);
                 } else if (event === "download") {
                     window.location.href = url;
+                } else if (event === "delete") {
+                    $.ajax({
+                        url:'./record.php',
+                        type:'post',
+                        dataType:'text',
+                        data:{
+                            filename: url,
+                        },
+                        success:function(data){
+                            console.log(data);
+                            if (data == 1) {
+                                layer.msg('删除成功，将自动刷新页面');
+                                setTimeout("location.reload()",1000);
+                                //刷新当前页面
+                            }else {
+                                layer.msg('删除失败');
+                            }
+                        }
+                    });
                 }
             });
         });
@@ -46,6 +65,7 @@
     <script type="text/html" id="playButton">
         <a class="layui-btn layui-btn-xs" lay-event="play">播放</a>
         <a class="layui-btn layui-btn-xs" lay-event="download">下载</a>
+        <a class="layui-btn layui-btn-xs" lay-event="delete">删除</a>
     </script>
 
 </body>

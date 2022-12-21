@@ -119,7 +119,7 @@
 }
 
 .my-body .layui-tab, .my-body .layui-tab .layui-tab-content, .my-body .layui-tab .layui-tab-item {
-    height: 100%;
+    height: calc(100% - 10px);
 }
 
 .my-body iframe {

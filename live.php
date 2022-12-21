@@ -11,6 +11,7 @@ header("Cache-Control:no-cache,must-revalidate");
         <link href="./css/video-js.min.css" rel="stylesheet">
         <script src="./js/video.min.js"></script>
         <script src="./js/videojs-contrib-hls.js"></script>
+        <script src="./layui/layui.js"></script>
     </head>
     <body>
 

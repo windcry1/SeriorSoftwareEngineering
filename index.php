@@ -25,18 +25,6 @@ if(empty($_SESSION['user'])){
             <div class="my-header-logo">HLS直播系统</div>
         </a>
  
-        <!-- 顶部左侧添加选项卡监听 -->
-        <ul class="layui-nav" lay-filter="side-top-left">
-            <!--<li class="layui-nav-item"><a href="javascript:;" href-url="demo/btn.html"><i class="layui-icon"></i>按钮</a></li>
-            <li class="layui-nav-item">
-                <a href="javascript:;"><i class="layui-icon"></i>基础</a>
-                <dl class="layui-nav-child">
-                    <dd><a href="javascript:;" href-url="demo/btn.html"><i class="layui-icon"></i>按钮</a></dd>
-                    <dd><a href="javascript:;" href-url="demo/form.html"><i class="layui-icon"></i>表单</a></dd>
-                </dl>
-            </li>-->
-        </ul>
- 
         <!-- 顶部右侧添加选项卡监听 -->
         <ul class="layui-nav my-header-user-nav" lay-filter="side-top-right">
             <li class="layui-nav-item">
@@ -68,13 +56,12 @@ if(empty($_SESSION['user'])){
                         <dd><a href="javascript:switch_page('录播','record.html');"><i class="layui-icon"></i>录播页</a></dd>
                     </dl>
                 </li>
-                <!--去除 layui-nav-itemed 即可关闭展开-->
-                <!-- <li class="layui-nav-item">
+                <li class="layui-nav-item">
                     <a href="javascript:;"><i class="layui-icon"></i>其他页面</a>
                     <dl class="layui-nav-child">
-                        
+                        <dd><a href="javascript:switch_page('用户管理','user.html');" ><i class="layui-icon"></i>用户查询</a></dd>
                     </dl>
-                </li> -->
+                </li>
             </ul>
  
         </div>

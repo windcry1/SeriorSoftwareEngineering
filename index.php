@@ -21,7 +21,6 @@ if(empty($_SESSION['user'])){
     <!-- header -->
     <div class="layui-header my-header">
         <a href="index.html">
-            <!--<img class="my-header-logo" src="" alt="logo">-->
             <div class="my-header-logo">HLS直播系统</div>
         </a>
  

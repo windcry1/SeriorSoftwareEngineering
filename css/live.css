@@ -18,6 +18,7 @@ div {
 .container {
     text-align: center;
     font-size: 0;
+    margin:10px;
     height: 100%;
     width: 45%;
 }

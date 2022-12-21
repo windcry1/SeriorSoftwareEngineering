@@ -12,6 +12,7 @@ header("Cache-Control:no-cache,must-revalidate");
         <script src="./js/video.min.js"></script>
         <script src="./js/videojs-contrib-hls.js"></script>
         <script src="./layui/layui.js"></script>
+        <script src="./js/functions.js"></script>
     </head>
     <body>
 
@@ -56,6 +57,10 @@ header("Cache-Control:no-cache,must-revalidate");
                     my_video.setAttribute('id', filename);
                     my_video.className = "video video-js vjs-default-skin vjs-big-play-centered";
                     container.append(my_video);
+
+                    var text = $('<div text-align="center" class="text"></div>');
+                    container.append(text);
+                    text.html(change_name(filename));
 
                     var player = videojs(my_video, {
                         controls: true,

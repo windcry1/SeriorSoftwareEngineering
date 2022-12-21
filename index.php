@@ -57,8 +57,7 @@ if(empty($_SESSION['user'])){
                 </li>
                 <li class="layui-nav-item">
                     <a href="javascript:;"><i class="layui-icon"></i>其他页面</a>
-                    <dl class="layui-nav-child">
-                        <dd><a href="javascript:switch_page('用户管理','user.html');" ><i class="layui-icon"></i>用户查询</a></dd>
+                    <dl class="layui-nav-child" id="other_pages">
                     </dl>
                 </li>
             </ul>
@@ -83,22 +82,18 @@ if(empty($_SESSION['user'])){
         <p>HLS直播系统 云南大学软件学院 v2.0</p>
     </div>
 </div>
- 
-<!-- 右键菜单 -->
-<div class="my-dblclick-box none">
-    <table class="layui-tab dblclick-tab">
-        <tr class="card-refresh">
-            <td><i class="layui-icon">ဂ</i>刷新当前标签</td>
-        </tr>
-        <tr class="card-close">
-            <td><i class="layui-icon">ဆ</i>关闭当前标签</td>
-        </tr>
-        <tr class="card-close-all">
-            <td><i class="layui-icon">ဆ</i>关闭所有标签</td>
-        </tr>
-    </table>
-</div>
+
 <script type="text/javascript" src="./layui/layui.js"></script>
 <script type="text/javascript" src="./js/index_functions.js"></script>
+<script type="text/javascript">
+    if (<?php if ($_SESSION['user'] == 'yuhao') echo '1';  else echo '0';?>) {
+        layui.use('jquery',function (){
+            var $ = layui.jquery;
+            var dd = $('<dd></dd>');
+            var a = $("<a href=\"javascript:switch_page('用户查询','user.php');\" ><i class='layui-icon'></i>用户查询</a>");
+            $('#other_pages').append(dd.append(a));
+        });
+    }
+</script>
 </body>
 </html>

@@ -19,28 +19,12 @@ div {
     text-align: center;
     font-size: 0;
     height: 100%;
-    width: 49%;
+    width: 45%;
 }
-#video1{
+.video{
     height: 90%;
     width: 100%;
 }
-
-#video2 {
-    height: 90%;
-    width: 100%;
-}
-
-#video3 {
-    height: 90%;
-    width: 100%;
-}
-
-#video4 {
-    height: 90%;
-    width: 100%;
-}
-
 .text {
     font-size: medium;
 }

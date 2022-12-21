@@ -17,31 +17,62 @@ header("Cache-Control:no-cache,must-revalidate");
 
         <div id="inlinecontainer">
 
-            <div class="container">
-                <video id="video1" class="video-js vjs-default-skin vjs-big-play-centered" preload="auto" controls>
-                    <source src="http://localhost/hls/user1.m3u8" type="application/x-mpegURL">
-                </video>
-                <div class="text">
-                    <br />
-                    用户1的直播
-                </div>
-            </div>
-
-            <div class="container">
-                <video id="video2" class="video-js vjs-default-skin vjs-big-play-centered" preload="auto" controls>
-                    <source src="http://localhost/hls/user2.m3u8" type="application/x-mpegURL">
-                </video>
-                <div class="text">
-                    <br />
-                    用户2的直播
-                </div>
-            </div>
-
         </div>
 
         <script type="text/javascript">
-            var player1 = videojs('video1');
-            var player2 = videojs('video2');
+            layui.use(['layer','jquery'], function () {
+                var $ = layui.jquery;
+                var layer = layui.layer;
+
+                var path = './hls/';
+                var video_data = 
+                    <?php 
+                        $path = './hls/';
+                        //扫描目录下文件
+                        $files = scandir($path);
+                        //生成数组保存数据
+                        $video_data = array();
+                        foreach ($files as $file) {
+                            $ext = pathinfo($path.$file)['extension'];
+                            if ($ext === 'm3u8') {
+                                array_push($video_data, $file);
+                            }
+                        }
+                        echo json_encode($video_data);
+                    ?>;
+                if (video_data.length == 0) {
+                    layer.msg('当前没有直播，请稍后再来！');
+                }
+                for (let idx = 0; idx < video_data.length; idx++) {
+                    var filename = video_data[idx];
+                    var url = path + filename;
+                    var inlinecontainer = $('#inlinecontainer');
+
+                    var container = $('<div class="container"></div>');
+
+                    inlinecontainer.append(container);
+
+                    var my_video = document.createElement('video');
+                    my_video.setAttribute('id', filename);
+                    my_video.className = "video video-js vjs-default-skin vjs-big-play-centered";
+                    container.append(my_video);
+
+                    var player = videojs(my_video, {
+                        controls: true,
+                        preload: 'auto',
+                        language: 'zh-CN',
+                        muted: false,
+                        sources: [
+                            {
+                                src: url,
+                                type: "application/x-mpegURL",
+                            }
+                        ]
+                    },function(){
+                        console.log('load success');
+                    });
+                }
+            });
         </script>
     </body>
 </html>

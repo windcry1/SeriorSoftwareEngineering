@@ -1,6 +1,7 @@
 {
     "name": "windcry1/seriorsoftwareengineering",
     "description": "This is our homework!",
+    "license": "MIT",
     "autoload": {
         "classmap": [
             "./"

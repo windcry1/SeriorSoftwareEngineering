@@ -1,7 +1,5 @@
-# 介绍
+# 介绍 <span style="float:right">![php](https://github.com/windcry1/SeriorSoftwareEngineering/actions/workflows/php.yml/badge.svg)</span>
 该系统是HLS直播系统，高级软件工程大作业，初步实现了登录、注册、直播、看播、直播间、用户管理等功能。
-
-![php](https://github.com/windcry1/SeriorSoftwareEngineering/actions/workflows/php.yml/badge.svg)
 
 ## 运行环境
 mysql 8.0.30

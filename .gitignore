@@ -1,0 +1,11 @@
+record/
+vendor/bin
+vendor/doctrine
+vendor/monolog
+vendor/myclabs
+vendor/phar-io
+vendor/phpunit
+vendor/psr
+vendor/sebastian
+vendor/theseer
+vendor/autoload.php

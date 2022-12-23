@@ -33,7 +33,7 @@ if ($_SESSION['user'] != 'yuhao') {
                 var $ = layui.jquery;
                 table.render({
                     elem:"#user"
-                    ,url:"./getuser.php"
+                    ,url:"./getUser.php"
                     ,cellMinWidth: 150 //全局定义常规单元格的最小宽度
                     ,cols: [[
                         {field:"uid", align:"center", minwidth:150, title: "用户id"},
